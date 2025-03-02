@@ -1,0 +1,123 @@
+/*Фоновая анимация========================================================================================================================================================*/
+.bg-animation {
+    background-color: #151e31;
+    height: 100vh;
+    background-size: 50px 50px;
+    background-image: linear-gradient(to right, rgba(24, 44, 117, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(24, 44, 117, 0.2) 1px, transparent 1px);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    display: flex;
+    transform: translateZ(0);
+    justify-content: space-between;
+}
+
+.bg-animation::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(21, 30, 49, 0.36);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.1px);
+    -webkit-backdrop-filter: blur(1.1px);
+    z-index: 2;
+}
+
+.bg-animation:after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    background: rgba(75, 108, 183, 0.8);
+    filter: blur(100px);
+}
+
+.bg-animation span {
+    position: relative;
+    display: block;
+    white-space: nowrap;
+    font-size: 35px;
+    margin: 0 4px;
+    border-radius: 50%;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(130s / var(--i));
+    will-change: transform;
+}
+
+.bg-animation span:nth-child(2n) {
+    font-size: 40px;
+    animation-duration: calc(160s / var(--i));
+}
+
+.bg-animation span:nth-child(3n) {
+    font-size: 22px;
+    animation-duration: calc(190s / var(--i));
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+/*Логотип анимация========================================================================================================================================================*/
+.content-block__logo {
+    animation: animateLogo 3s linear infinite;
+    animation-direction: alternate;
+}
+
+@keyframes animateLogo {
+    0% {
+        transform: translate(0px, 0px) rotate(0);
+    }
+    100% {
+        transform: translate(10px, -20px) rotate(10deg);
+    }
+}
+
+/*Border анимация========================================================================================================================================================*/
+.statistics-block__item {
+    animation: animateBorderItem 1s linear infinite;
+    animation-direction: alternate;
+}
+
+.items-services__item {
+    animation: animateBorderItem 1s linear infinite;
+    animation-direction: alternate;
+}
+
+.body-come__content {
+    animation: animateBorderItem 1s linear infinite;
+    animation-direction: alternate;
+}
+
+.up-btn {
+    animation: animateBorderItem 1s linear infinite;
+    animation-direction: alternate;
+}
+
+.calculate-item {
+    animation: animateBorderItem 1s linear infinite;
+    animation-direction: alternate;
+}
+
+@keyframes animateBorderItem {
+    0% {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        border: 1px solid rgba(70, 70, 185, 1);
+    }
+}
